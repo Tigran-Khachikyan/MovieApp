@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">MovieApp</string>
+    <string name="released_in">Released in</string>
+    <string name="spoken_languages">Spoken languages</string>
+    <string name="original_language">Original language</string>
+    <string name="companies">Companies</string>
+    <string name="budget">Budget</string>
+    <string name="duration">Duration</string>
+    <string name="countries">Countries</string>
+
+    <string name="empty_response">Response is empty!</string>
+    <string name="request_failed">Request failed, please check connectivity!</string>
+    <string name="cache_is_empty">Cache is empty!</string>
+    <string name="response_not_succeed">Response does not succeed!</string>
+    <string name="from_cache">Data from cache!</string>
+    <string name="latest_data">The latest info!</string>
+</resources>
