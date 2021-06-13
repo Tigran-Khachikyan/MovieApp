@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.task.movieapp.R
@@ -16,6 +15,7 @@ import com.task.movieapp.ui.details.DetailsFragment
 import com.task.movieapp.utils.gone
 import com.task.movieapp.utils.showSnackBar
 import com.task.movieapp.utils.visible
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment() {
 
@@ -23,7 +23,7 @@ class HomeFragment : Fragment() {
         fun newInstance() = HomeFragment()
     }
 
-    private lateinit var viewModel: HomeViewModel
+    private val viewModel: HomeViewModel by viewModel()
     private lateinit var binding: HomeFragmentBinding
     private lateinit var movieAdapter: MoviesAdapter
 
@@ -31,7 +31,6 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         binding = HomeFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }

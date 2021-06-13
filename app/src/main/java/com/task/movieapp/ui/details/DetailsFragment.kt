@@ -1,6 +1,5 @@
 package com.task.movieapp.ui.details
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,6 +11,7 @@ import com.task.movieapp.utils.Request
 import com.task.movieapp.databinding.DetailsFragmentBinding
 import com.task.movieapp.domain.movie.model.Movie
 import com.task.movieapp.utils.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DetailsFragment : Fragment() {
 
@@ -28,12 +28,11 @@ class DetailsFragment : Fragment() {
     }
 
     private lateinit var binding: DetailsFragmentBinding
-    private lateinit var viewModel: DetailsViewModel
+    private val viewModel: DetailsViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-        viewModel = ViewModelProvider(this).get(DetailsViewModel::class.java)
         binding = DetailsFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }

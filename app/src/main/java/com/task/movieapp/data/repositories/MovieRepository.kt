@@ -9,7 +9,6 @@ import com.task.movieapp.domain.movie.model.Movie
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
-
 class MovieRepository(
     private val api: MovieApi,
     database: AppDatabase
