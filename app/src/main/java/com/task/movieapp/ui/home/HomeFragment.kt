@@ -39,7 +39,6 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         initViews()
-        loadData()
         viewModel.popularMovies.observe(viewLifecycleOwner) {
             binding.root.showSnackBar(it)
             when (it) {
@@ -83,9 +82,5 @@ class HomeFragment : Fragment() {
             .add(R.id.container, DetailsFragment.newInstance(movieId))
             .addToBackStack(null)
             .commit()
-    }
-
-    private fun loadData() {
-        viewModel.loadPopularMovies()
     }
 }

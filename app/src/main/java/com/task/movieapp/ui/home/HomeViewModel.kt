@@ -16,6 +16,10 @@ class HomeViewModel(private val interactor: MovieInteractor) : ViewModel() {
 
     private val _movies: MutableLiveData<Request<List<Movie>>> = MutableLiveData()
 
+    init {
+        loadPopularMovies()
+    }
+
     fun loadPopularMovies(page: Int = 1) {
         viewModelScope.launch(Dispatchers.IO) {
             interactor.getPopularMovies(page).collect {

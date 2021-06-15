@@ -17,10 +17,12 @@ class DetailsViewModel(private val interactor: MovieInteractor) : ViewModel() {
     private val _details = MutableLiveData<Request<Movie>>()
 
     fun loadDetails(id: Int) {
-        viewModelScope.launch(Dispatchers.IO) {
-            interactor.getMovieDetails(id).collect {
-                withContext(Dispatchers.Main) {
-                    _details.value = it
+        if (_details.value == null) {
+            viewModelScope.launch(Dispatchers.IO) {
+                interactor.getMovieDetails(id).collect {
+                    withContext(Dispatchers.Main) {
+                        _details.value = it
+                    }
                 }
             }
         }
