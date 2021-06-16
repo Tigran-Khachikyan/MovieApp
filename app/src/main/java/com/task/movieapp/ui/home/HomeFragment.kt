@@ -26,6 +26,7 @@ class HomeFragment : Fragment() {
     private val viewModel: HomeViewModel by viewModel()
     private lateinit var binding: HomeFragmentBinding
     private lateinit var movieAdapter: MoviesAdapter
+    private var loadedMovies: ArrayList<Movie> = arrayListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -73,8 +74,9 @@ class HomeFragment : Fragment() {
     }
 
     private fun updateViews(movies: List<Movie>) {
+        loadedMovies.addAll(movies)
         binding.progressBar.gone()
-        movieAdapter.addMovies(movies)
+        movieAdapter.submitList(loadedMovies)
     }
 
     private fun openDetailsFragment(movieId: Int) {

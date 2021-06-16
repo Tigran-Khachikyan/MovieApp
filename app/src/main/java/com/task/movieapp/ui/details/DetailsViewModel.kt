@@ -18,7 +18,7 @@ class DetailsViewModel(private val interactor: MovieInteractor) : ViewModel() {
 
     fun loadDetails(id: Int) {
         if (_details.value == null) {
-            viewModelScope.launch(Dispatchers.IO) {
+            viewModelScope.launch {
                 interactor.getMovieDetails(id).collect {
                     withContext(Dispatchers.Main) {
                         _details.value = it

@@ -21,7 +21,7 @@ class HomeViewModel(private val interactor: MovieInteractor) : ViewModel() {
     }
 
     fun loadPopularMovies(page: Int = 1) {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch {
             interactor.getPopularMovies(page).collect {
                 withContext(Dispatchers.Main) {
                     _movies.value = it
